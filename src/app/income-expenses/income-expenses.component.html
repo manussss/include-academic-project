@@ -1,1 +1,28 @@
-<p>income-expenses works!</p>
+<main>
+  <p-tabView>
+    <p-tabPanel header="Receitas e Despesas">
+      <p-card header="Extrato" subheader="Seu extrato">
+        <form #extratoForm="ngForm" (ngSubmit)="adicionarDado(extratoForm)">
+          <span class="p-float-label spacing-span">
+
+          <input class="bottom-space" type="text" id="float-input-desc" pInputText name="dado" ngModel>
+          <label for="float-inpu-desc">Qual a descrição do que quer adicionar?</label>
+
+          </span>
+
+          <span class="p-float-label ui-inputgroup-addon spacing-span">
+
+            <input type="number" id="float-input-value" pInputText name="dadoValue" ngModel>
+            <label for="float-input-value">Qual o valor monetário?</label>
+
+          </span>
+          <div class="adicionar-botao">
+          <p-button label="Adicionar" type="submit" icon="pi pi-plus-circle"></p-button>
+          </div>
+        </form>
+        </p-card>
+    </p-tabPanel>
+    <p-tabPanel header="Gráfico">
+    </p-tabPanel>
+  </p-tabView>
+</main>

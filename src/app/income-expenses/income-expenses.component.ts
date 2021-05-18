@@ -12,4 +12,8 @@ export class IncomeExpensesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  adicionarDado(extratoDado){
+    console.log(extratoDado);
+  }
+
 }

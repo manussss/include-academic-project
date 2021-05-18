@@ -1,0 +1,17 @@
+span, input{
+  width: 100%;
+}
+
+.bottom-space{
+  margin-bottom: 6px;
+}
+
+.spacing-span{
+  margin: 30px 0;
+}
+
+.adicionar-botao{
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0;
+}
