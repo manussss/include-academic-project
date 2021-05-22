@@ -11,11 +11,13 @@ import { ChartModule } from 'primeng/chart';
 
 import { AppComponent } from './app.component';
 import { IncomeExpensesComponent } from './income-expenses/income-expenses.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IncomeExpensesComponent
+    IncomeExpensesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
