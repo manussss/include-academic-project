@@ -1,8 +1,16 @@
 <main>
-  <p-tabView>
+  <p-tabView (onChange)="atualizarGrafico()">
     <p-tabPanel header="Receitas e Despesas">
       <p-card header="Extrato" subheader="Seu extrato">
         <form #extratoForm="ngForm" (ngSubmit)="adicionarDado(extratoForm)">
+
+          <span class="p-float-label spacing-span">
+
+            <input class="bottom-space" type="text" id="float-input-desc" pInputText name="nome" ngModel>
+            <label for="float-inpu-desc">Qual o nome do que quer adicionar?</label>
+
+          </span>
+
           <span class="p-float-label spacing-span">
 
             <input class="bottom-space" type="text" id="float-input-desc" pInputText name="dado" ngModel>
@@ -21,20 +29,26 @@
           </div>
         </form>
         <div class="tarefa" *ngFor="let dado of extrato">
-          <p-card>
+          <p-card class="card">
             <div class="conteudo-tarefa">
+              <p>{{dado.nome}}</p>
               <p>{{dado.descricao}}</p>
+              <p>R${{dado.valor}}</p>
               <div>
-                <p-selectButton [options]="opcoes" optionLabel="rotulo" optionValue="valor"
-                [(ngModel)]="dado.tipo"></p-selectButton>
+                <p-selectButton
+                [options]="opcoes"
+                optionLabel="rotulo"
+                optionValue="valor"
+                [(ngModel)]="dado.tipo">
+              </p-selectButton>
               </div>
             </div>
           </p-card>
         </div>
-
       </p-card>
     </p-tabPanel>
     <p-tabPanel header="Gráfico">
+      <p-chart type="doughnut" [data]="dados"></p-chart>
     </p-tabPanel>
   </p-tabView>
 </main>
