@@ -18,7 +18,9 @@ export class IncomeExpensesComponent implements OnInit {
     { rotulo: 'Despesa', valor: false }, //false - despesa
   ];
 
-  constructor(private extratoService: ExtratoService) {}
+  options: any;
+
+  constructor(private extratoService: ExtratoService) { }
 
   ngOnInit(): void {
     this.extratoService.getExtratos();
@@ -45,16 +47,28 @@ export class IncomeExpensesComponent implements OnInit {
     const receita = this.extratos.filter((t) => t.tipo).length;
     const despesa = this.extratos.length - receita;
     this.dados = {
-      labels: ['Receitas', 'Despesas'],
+      labels: ['Extratos'],
       datasets: [
         {
-          data: [receita, despesa],
-          backgroundColor: [
-            '#2196F3', //azul para concluídas
-            '#F44336', //vermelho para pendentes
-          ],
+          label: 'Receitas',
+          backgroundColor: '#42A5F5',
+          data: [receita]
         },
-      ],
+        {
+          label: 'Despesas',
+          backgroundColor: '#FFA726',
+          data: [despesa]
+        }
+      ]
     };
+    this.options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
   }
 }
