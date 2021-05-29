@@ -11,21 +11,29 @@ span, input{
 }
 
 .card{
-  display: inline-flex;
+  display: block;
   align-items: center;
+}
+
+.div-card{
+  display: inline-flex;
+  flex-wrap: wrap;
   width: 100%;
 }
 
-.tarefa{
-  display: inline-block;
-  width: 50%;
+/* .p-component, .p-card{
+  width: 100%;
+} */
+
+/* .tarefa{
+  display: block;
   margin: auto 0;
-}
+} */
 
 .conteudo-tarefa{
   font-size: 22px;
   text-align: center;
-  width: 50%;
+  width: 100%;
 }
 
 .adicionar-botao{

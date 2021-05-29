@@ -29,22 +29,24 @@
             <p-button label="Adicionar" type="submit" icon="pi pi-plus-circle"></p-button>
           </div>
         </form>
-        <div class="tarefa" *ngFor="let dado of extratos">
-          <p-card class="card">
-            <div class="conteudo-tarefa">
-              <p>{{dado.nome}}</p>
-              <p>{{dado.descricao}}</p>
-              <p>R${{dado.valor}}</p>
-              <div>
-                <p-selectButton
-                [options]="opcoes"
-                optionLabel="rotulo"
-                optionValue="valor"
-                [(ngModel)]="dado.tipo">
-              </p-selectButton>
+        <div class="div-card">
+          <div class="" style="width: 50%; padding: 10px;" *ngFor="let dado of extratos">
+            <p-card class="card">
+              <div class="conteudo-tarefa">
+                <p>{{dado.nome}}</p>
+                <p>{{dado.descricao}}</p>
+                <p>R${{dado.valor}}</p>
+                <div>
+                  <p-selectButton
+                  [options]="opcoes"
+                  optionLabel="rotulo"
+                  optionValue="valor"
+                  [(ngModel)]="dado.tipo">
+                </p-selectButton>
+                </div>
               </div>
-            </div>
-          </p-card>
+            </p-card>
+          </div>
         </div>
       </p-card>
     </p-tabPanel>
