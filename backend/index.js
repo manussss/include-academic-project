@@ -32,9 +32,13 @@ connection.connect((err) => {
 // CRUD
 
 // Create(Criar)
-app.post('/notas', (req, res) => {
+app.post('/extratos', (req, res) => {
     const { nome, descricao, valorMonetario, tipo } = req.body;
-    const query = "INSERT INTO notas VALUES (0, '" + nome + "', '" + descricao + "', " + valorMonetario + ", " + tipo + ");"
+    const tipoInt = 0;
+    if(tipo) {
+        tipoInt = 1;
+    }
+    const query = "INSERT INTO extratos VALUES (0, '" + nome + "', '" + descricao + "', " + valorMonetario + ", " + tipoInt + ");"
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
@@ -45,39 +49,49 @@ app.post('/notas', (req, res) => {
 });
 
 // Read(Ler)
-app.get('/notas', (req, res, next) => {
-    connection.query('SELECT * FROM notas', (err, result, fields) => {
+app.get('/extratos', (req, res, next) => {
+    connection.query('SELECT * FROM extratos', (err, result, fields) => {
         if (err) {
             console.log(err);
             return res.sendStatus(400);
         }
-        let notas = [];
+        let extratos = [];
         for (i of result) {
-            notas.push(i);
+            if (i.tipo === 0){
+                i.tipo = false;
+            }
+            else if (i.tipo === 1){
+                i.tipo = true;
+            }
+            extratos.push(i);
         }
-        return res.send(notas);
+        return res.send(extratos);
     });
 });
 
-app.get('/notas/:id', (req, res, next) => {
-    let query = 'SELECT * FROM notas WHERE idNota=' + req.params.id
+app.get('/extratos/:id', (req, res, next) => {
+    let query = 'SELECT * FROM extratos WHERE idExtrato=' + req.params.id
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
             return res.sendStatus(400);
         }
-        let notas = result;
-        return res.send(notas);
+        let extratos = result;
+        return res.send(extratos);
     });
 });
 
 // Update(Atualizar)
-app.put('/notas/:id', (req, res, next) => {
-    let query = "UPDATE notas SET nome='" + req.body.nome 
+app.put('/extratos/:id', (req, res, next) => {
+    const tipoInt = 0;
+    if(req.body.tipo) {
+        tipoInt = 1;
+    }
+    let query = "UPDATE extratos SET nome='" + req.body.nome 
     + "', descricao='" + req.body.descricao 
     + "', valorMonetario=" + req.body.valorMonetario 
-    + ", tipo=" + req.body.tipo 
-    + " WHERE idNota=" + req.params.id
+    + ", tipo=" + tipoInt 
+    + " WHERE idExtrato=" + req.params.id
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
@@ -88,8 +102,8 @@ app.put('/notas/:id', (req, res, next) => {
 });
 
 // Delete(Excluir)
-app.delete('/notas/:id', (req, res) => {
-    let query = 'DELETE FROM notas WHERE idNota=' + req.params.id
+app.delete('/extratos/:id', (req, res) => {
+    let query = 'DELETE FROM extratos WHERE idExtrato=' + req.params.id
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);

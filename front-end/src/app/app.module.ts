@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
@@ -27,7 +28,8 @@ import { FooterComponent } from './footer/footer.component';
     CardModule,
     ChartModule,
     SelectButtonModule,
-    InputTextModule
+    InputTextModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
