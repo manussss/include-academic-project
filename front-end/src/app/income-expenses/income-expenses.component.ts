@@ -37,8 +37,9 @@ export class IncomeExpensesComponent implements OnInit {
       valor: extratoForm.value.dadoValue,
       tipo: false,
     };
-    this.extratos.push(dado);
+    this.extratoService.criarExtrato(dado);
     extratoForm.resetForm();
+    this.extratoService.getExtratos();
   }
 
   atualizarGrafico() {

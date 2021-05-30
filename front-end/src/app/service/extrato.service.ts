@@ -52,6 +52,8 @@ export class ExtratoService {
         };
         this.extratos.push(extratoNovo);
         this.listaExtratosAtualizada.next([...this.extratos]);
+      }, () => {
+        console.log('Erro ao cadastrar extrato')
       });
   }
 

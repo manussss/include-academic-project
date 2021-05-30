@@ -32,19 +32,19 @@ connection.connect((err) => {
 // CRUD
 
 // Create(Criar)
-app.post('/extratos', (req, res) => {
-    const { nome, descricao, valorMonetario, tipo } = req.body;
+app.post('/extrato', (req, res) => {
+    const { nome, descricao, valor, tipo } = req.body;
     const tipoInt = 0;
     if(tipo) {
         tipoInt = 1;
     }
-    const query = "INSERT INTO extratos VALUES (0, '" + nome + "', '" + descricao + "', " + valorMonetario + ", " + tipoInt + ");"
+    const query = "INSERT INTO extratos VALUES (0, '" + nome + "', '" + descricao + "', " + valor + ", " + tipoInt + ");"
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.sendStatus(400);
+            return res.send("Erro");
         }
-        return res.sendStatus(201);
+        return res.status(201);
     });
 });
 
@@ -53,7 +53,7 @@ app.get('/extratos', (req, res, next) => {
     connection.query('SELECT * FROM extratos', (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.sendStatus(400);
+            return res.status(400);
         }
         let extratos = [];
         for (i of result) {
@@ -74,7 +74,7 @@ app.get('/extratos/:id', (req, res, next) => {
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.sendStatus(400);
+            return res.status(400);
         }
         let extratos = result;
         return res.send(extratos);
@@ -89,15 +89,15 @@ app.put('/extratos/:id', (req, res, next) => {
     }
     let query = "UPDATE extratos SET nome='" + req.body.nome 
     + "', descricao='" + req.body.descricao 
-    + "', valorMonetario=" + req.body.valorMonetario 
+    + "', valor=" + req.body.valor 
     + ", tipo=" + tipoInt 
     + " WHERE idExtrato=" + req.params.id
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.sendStatus(400);
+            return res.status(400);
         }
-        return res.sendStatus(201);
+        return res.status(201);
     });
 });
 
@@ -107,8 +107,8 @@ app.delete('/extratos/:id', (req, res) => {
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.sendStatus(400);
+            return res.status(400);
         }
-        return res.sendStatus(200);
+        return res.status(200);
     });
 });

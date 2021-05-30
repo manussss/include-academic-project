@@ -12,6 +12,6 @@ CREATE TABLE IF NOT EXISTS extratos(
 ) ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO extratos VALUES (0, 'Pagamento março/2021', 'Pagamento março/2021', 1500.00, 0);
+INSERT INTO extratos VALUES (0, 'Pagamento março/2021', 'Pagamento março/2021', 1500.00, 1);
 INSERT INTO extratos VALUES (0, 'Conta de luz março/2021', 'Conta de luz março/2021', 150.00, 0);
 INSERT INTO extratos VALUES (0, 'Conta de luz abril/2021', 'Conta de luz abril/2021', 127.00, 0);
