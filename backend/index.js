@@ -34,7 +34,7 @@ connection.connect((err) => {
 // Create(Criar)
 app.post('/extrato', (req, res) => {
     const { nome, descricao, valor, tipo } = req.body;
-    const tipoInt = 0;
+    let tipoInt = 0;
     if(tipo) {
         tipoInt = 1;
     }
@@ -42,7 +42,7 @@ app.post('/extrato', (req, res) => {
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.send("Erro");
+            return res.send("Erro ao cadastrar extrato!");
         }
         return res.status(201);
     });
@@ -53,7 +53,7 @@ app.get('/extratos', (req, res, next) => {
     connection.query('SELECT * FROM extratos', (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.status(400);
+            return res.send("Erro ao acessar extratos!");
         }
         let extratos = [];
         for (i of result) {
@@ -74,7 +74,7 @@ app.get('/extratos/:id', (req, res, next) => {
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.status(400);
+            return res.send("Erro ao buscar extrato!");
         }
         let extratos = result;
         return res.send(extratos);
@@ -83,7 +83,7 @@ app.get('/extratos/:id', (req, res, next) => {
 
 // Update(Atualizar)
 app.put('/extratos/:id', (req, res, next) => {
-    const tipoInt = 0;
+    let tipoInt = 0;
     if(req.body.tipo) {
         tipoInt = 1;
     }
@@ -95,7 +95,7 @@ app.put('/extratos/:id', (req, res, next) => {
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.status(400);
+            return res.send("Erro ao atualizar extrato!");
         }
         return res.status(201);
     });
@@ -107,7 +107,7 @@ app.delete('/extratos/:id', (req, res) => {
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
-            return res.status(400);
+            return res.send("Erro ao excluir extrato!");
         }
         return res.status(200);
     });

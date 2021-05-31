@@ -44,6 +44,10 @@ export class IncomeExpensesComponent implements OnInit {
     this.extratoService.getExtratos();
   }
 
+  atualizar(extrato: Extrato) {
+    this.extratoService.atualizarExtrato(extrato);
+  }
+
   atualizarGrafico() {
     const receita = this.extratos.filter((t) => t.tipo).length;
     const despesa = this.extratos.length - receita;

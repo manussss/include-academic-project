@@ -18,9 +18,9 @@ export class ExtratoService {
       .get<{ extratos: Extrato[] }>(`http://localhost:3000/extratos/`)
       .pipe(
         map((extratos: any) => {
-          return extratos.map((extrato: Extrato) => {
+          return extratos.map((extrato: any) => {
             return {
-              id: extrato.id,
+              id: extrato.idExtrato,
               nome: extrato.nome,
               descricao: extrato.descricao,
               valor: extrato.valor,
@@ -32,6 +32,8 @@ export class ExtratoService {
       .subscribe((extratos) => {
         this.extratos = extratos;
         this.listaExtratosAtualizada.next([...this.extratos]);
+      }, (res) => {
+        console.log(res.error.text)
       });
   }
 
@@ -52,8 +54,8 @@ export class ExtratoService {
         };
         this.extratos.push(extratoNovo);
         this.listaExtratosAtualizada.next([...this.extratos]);
-      }, () => {
-        console.log('Erro ao cadastrar extrato')
+      }, (res) => {
+        console.log(res.error.text)
       });
   }
 
@@ -73,6 +75,8 @@ export class ExtratoService {
         copia[indice] = extratoNovo;
         this.extratos = copia;
         this.listaExtratosAtualizada.next([...this.extratos]);
+      }, (res) => {
+        console.log(res.error.text)
       });
   }
 
@@ -84,6 +88,8 @@ export class ExtratoService {
           return ext.id !== id;
         });
         this.listaExtratosAtualizada.next([...this.extratos]);
+      }, (res) => {
+        console.log(res.error.text)
       });
   }
 }

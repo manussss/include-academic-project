@@ -41,7 +41,8 @@
                   [options]="opcoes"
                   optionLabel="rotulo"
                   optionValue="valor"
-                  [(ngModel)]="dado.tipo">
+                  [(ngModel)]="dado.tipo"
+                  (click)="atualizar(dado)">
                 </p-selectButton>
                 </div>
               </div>
