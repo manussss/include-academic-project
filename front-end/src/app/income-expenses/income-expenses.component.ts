@@ -32,13 +32,16 @@ export class IncomeExpensesComponent implements OnInit {
   }
 
   adicionarDado(extratoForm) {
+    let data: Date = extratoForm.value.data;
     const dado: Extrato = {
       id: 0,
       nome: extratoForm.value.nome,
       descricao: extratoForm.value.dado,
       valor: extratoForm.value.dadoValue,
       tipo: false,
+      data: data
     };
+    console.log(dado)
     this.extratoService.criarExtrato(dado);
     extratoForm.resetForm();
     this.extratoService.getExtratos();

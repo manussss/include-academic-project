@@ -25,6 +25,7 @@ export class ExtratoService {
               descricao: extrato.descricao,
               valor: extrato.valor,
               tipo: extrato.tipo,
+              data: extrato.data
             };
           });
         })
@@ -51,6 +52,7 @@ export class ExtratoService {
           descricao: extrato.descricao,
           valor: extrato.valor,
           tipo: extrato.tipo,
+          data: extrato.data
         };
         this.extratos.push(extratoNovo);
         this.listaExtratosAtualizada.next([...this.extratos]);
@@ -71,6 +73,7 @@ export class ExtratoService {
           descricao: extrato.descricao,
           valor: extrato.valor,
           tipo: extrato.tipo,
+          data: extrato.data
         };
         copia[indice] = extratoNovo;
         this.extratos = copia;

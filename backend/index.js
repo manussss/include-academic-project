@@ -33,12 +33,12 @@ connection.connect((err) => {
 
 // Create(Criar)
 app.post('/extrato', (req, res) => {
-    const { nome, descricao, valor, tipo } = req.body;
+    const { nome, descricao, valor, tipo, data } = req.body;
     let tipoInt = 0;
     if(tipo) {
         tipoInt = 1;
     }
-    const query = "INSERT INTO extratos VALUES (0, '" + nome + "', '" + descricao + "', " + valor + ", " + tipoInt + ");"
+    const query = "INSERT INTO extratos VALUES (0, '" + nome + "', '" + descricao + "', " + valor + ", " + tipoInt + ", '" + data + "');"
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
@@ -87,11 +87,13 @@ app.put('/extratos/:id', (req, res, next) => {
     if(req.body.tipo) {
         tipoInt = 1;
     }
+    let data = new Date(req.body.data)
     let query = "UPDATE extratos SET nome='" + req.body.nome 
     + "', descricao='" + req.body.descricao 
     + "', valor=" + req.body.valor 
     + ", tipo=" + tipoInt 
-    + " WHERE idExtrato=" + req.params.id
+    + ", data='" + data.toISOString().split('T')[0]
+    + "' WHERE idExtrato=" + req.params.id
     connection.query(query, (err, result, fields) => {
         if (err) {
             console.log(err);
