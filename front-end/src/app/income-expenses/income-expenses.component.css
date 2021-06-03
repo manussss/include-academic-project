@@ -21,6 +21,22 @@ span, input{
   width: 100%;
 }
 
+.navbar{
+  background-color: black;
+}
+
+.card-border{
+  border-radius: 5px;
+}
+
+.receita{
+  background: lightgreen;
+}
+
+.despesa{
+  background: lightcoral;
+}
+
 /* .p-component, .p-card{
   width: 100%;
 } */
@@ -40,4 +56,13 @@ span, input{
   display: flex;
   justify-content: flex-end;
   margin: 12px 0;
+}
+
+.carousel-fit-image{
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.caroulse-image{
+  max-height: 500px;
 }

@@ -5,6 +5,7 @@ const cors = require('cors');
 const mysql = require('mysql');
 app.use(cors());
 app.use(express.json());
+require('dotenv').config()
 
 // Configura a porta do servidor e coloca em execução
 const porta = 3000;
@@ -14,10 +15,10 @@ server.listen(porta);
 
 // Cria a conexão do mysql e faz a conexão
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root', // Colocar seu usuário
-    password: 'default1234', // Colocar sua senha
-    database: 'include'
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER, // Colocar seu usuário
+    password: process.env.MYSQL_PASSWORD, // Colocar sua senha
+    database: process.env.MYSQL_DATABASE
 });
 
 connection.connect((err) => {
