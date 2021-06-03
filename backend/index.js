@@ -15,8 +15,8 @@ server.listen(porta);
 // Cria a conexão do mysql e faz a conexão
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'user', // Colocar seu usuário
-    password: 'Abc12345', // Colocar sua senha
+    user: 'root', // Colocar seu usuário
+    password: 'default1234', // Colocar sua senha
     database: 'include'
 });
 
