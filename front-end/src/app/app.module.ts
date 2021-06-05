@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ChartModule } from 'primeng/chart';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 import { AppComponent } from './app.component';
 import { IncomeExpensesComponent } from './income-expenses/income-expenses.component';
@@ -29,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     ChartModule,
     SelectButtonModule,
     InputTextModule,
-    HttpClientModule
+    HttpClientModule,
+    InputNumberModule
   ],
   providers: [],
   bootstrap: [AppComponent]
