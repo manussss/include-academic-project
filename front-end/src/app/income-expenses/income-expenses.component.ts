@@ -48,8 +48,16 @@ export class IncomeExpensesComponent implements OnInit {
     this.extratoService.getExtratos();
   }
 
-  atualizar(extrato: Extrato) {
-    this.extratoService.atualizarExtrato(extrato);
+  // atualizar(extrato: Extrato) {
+  //   this.extratoService.atualizarExtrato(extrato);
+  //   this.extratoService.getExtratos();
+  // }
+
+  excluir(extrato: Extrato) {
+    if(confirm('Deseja excluir o extrato "' + extrato.nome + '"?')) {
+      this.extratoService.removerExtrato(extrato.id);
+    }
+    this.extratoService.getExtratos();
   }
 
   atualizarGrafico() {

@@ -16,6 +16,38 @@ input {
   align-items: center;
 }
 
+.close {
+  position: absolute;
+  right: 32px;
+  top: 15px;
+  width: 15px;
+  height: 20px;
+  opacity: 0.3;
+}
+
+.close:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+
 .div-card {
   display: inline-flex;
   flex-wrap: wrap;
@@ -28,6 +60,22 @@ input {
 
 .card-border {
   border-radius: 5px;
+  width: 50%;
+  padding: 10px;
+}
+
+.red-button {
+  display: inline-flex;
+  background-color: #f44336; /* Green */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 5px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .home-title {
@@ -62,16 +110,21 @@ input {
   background: lightcoral;
 }
 
-/* .p-component, .p-card{
-  width: 100%;
-} */
+.data-tipo{
+  display: flex;
+}
 
-/* .tarefa{
-  display: block;
-  margin: auto 0;
-} */
+.data-tipo div {
+  padding-right: 20px;
+}
+
+.text-data{
+  font-size: 15px;
+  width: 100%;
+}
 
 .conteudo-tarefa {
+  padding-top: 20px;
   font-size: 22px;
   text-align: center;
   width: 100%;

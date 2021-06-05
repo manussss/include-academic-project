@@ -80,13 +80,19 @@
       <!-- Fim -->
 
       <div class="content">
-        <img class="home-image" src="https://image.flaticon.com/icons/png/512/2228/2228779.png" alt="Imagem com diversas referencias para orçamento.">
+        <img
+          class="home-image"
+          src="https://image.flaticon.com/icons/png/512/2228/2228779.png"
+          alt="Imagem com diversas referencias para orçamento."
+        />
         <div class="text">
           <h1 class="home-title">~Nome do aplicativo~</h1>
-          <h4>Com nosso gerenciador de receitas e despesas você pode fazer um acompanhamento do seu orçamento.</h4>
+          <h4>
+            Com nosso gerenciador de receitas e despesas você pode fazer um
+            acompanhamento do seu orçamento.
+          </h4>
         </div>
       </div>
-
     </p-tabPanel>
     <p-tabPanel header="Receitas e Despesas">
       <p-card header="Extrato" subheader="Seu extrato">
@@ -133,30 +139,30 @@
             <label for="float-input-value">Qual o valor monetário?</label>
           </span>
 
-          <span class="spacing-span">
-            <label style="font-size: 15px; width: 100%"
-              >Insira uma data:
-            </label>
-            <input
-              style="width: 160px"
-              type="date"
-              id="float-input-value"
-              pInputText
-              name="data"
-              autofocus="autofocus"
-              ngModel
-            />
-          </span>
-
-          <span class="p-float-label ui-inputgroup-addon spacing-span">
-            <p-selectButton
-              [options]="opcoes"
-              optionLabel="rotulo"
-              optionValue="valor"
-              name="tipo"
-              ngModel
-            >
-            </p-selectButton>
+          <span class="spacing-span data-tipo">
+            <div>
+              <label class="text-data">Insira uma data: </label>
+              <input
+                style="width: 160px"
+                type="date"
+                id="float-input-value"
+                pInputText
+                name="data"
+                autofocus="autofocus"
+                ngModel
+              />
+            </div>
+            <div>
+              <label class="text-data">Escolha o tipo: </label>
+              <p-selectButton
+                [options]="opcoes"
+                optionLabel="rotulo"
+                optionValue="valor"
+                name="tipo"
+                ngModel
+              >
+              </p-selectButton>
+            </div>
           </span>
 
           <div class="adicionar-botao">
@@ -169,17 +175,19 @@
         </form>
         <div class="div-card">
           <div
-            [ngClass]="{'receita': dado.tipo,'despesa':!dado.tipo}"
+            [ngClass]="{ receita: dado.tipo, despesa: !dado.tipo }"
             class="card-border"
-            style="width: 50%; padding: 10px"
             *ngFor="let dado of extratos"
           >
-            <p-card [ngClass]="{'receita': dado.tipo,'despesa':!dado.tipo}" class="card">
+            <p-card
+              [ngClass]="{ receita: dado.tipo, despesa: !dado.tipo }"
+              class="card"
+            >
               <div class="conteudo-tarefa">
+                <a class="close" (click)='excluir(dado)'></a>
                 <p>{{ dado.nome }}</p>
                 <p>{{ dado.descricao }}</p>
                 <p>{{ dado.valor }}</p>
-                <div></div>
               </div>
             </p-card>
           </div>
