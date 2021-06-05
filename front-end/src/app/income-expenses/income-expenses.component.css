@@ -47,15 +47,10 @@ input {
   transform: rotate(-45deg);
 }
 
-
 .div-card {
   display: inline-flex;
   flex-wrap: wrap;
   width: 100%;
-}
-
-.navbar {
-  background-color: black;
 }
 
 .card-border {
