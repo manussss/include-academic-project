@@ -37,19 +37,22 @@ span, input{
   background: lightcoral;
 }
 
-/* .p-component, .p-card{
-  width: 100%;
-} */
-
-/* .tarefa{
-  display: block;
-  margin: auto 0;
-} */
+.increase-size:hover{
+  transform: scale(1.1);
+}
 
 .conteudo-tarefa{
   font-size: 22px;
   text-align: center;
   width: 100%;
+}
+
+.second-card-image{
+  min-height: 260px;
+}
+
+.card-image-content{
+  object-fit: cover;
 }
 
 .adicionar-botao{
