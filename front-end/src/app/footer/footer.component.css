@@ -1,3 +1,25 @@
 .footer-title {
   font-family: 'Amatic SC', cursive;
 }
+
+.copyright{
+  text-align: center;
+  margin: 0px;
+  padding: 0 0 10px 0;
+}
+
+#footer{
+  margin: 0px;
+  height: 100hv;
+  background-color: #f2f2f2;
+}
+
+.go-top:hover{
+  color: black;
+}
+
+@media (max-width: 700px){
+    #footer-division{
+        width: 80%;
+    }
+}

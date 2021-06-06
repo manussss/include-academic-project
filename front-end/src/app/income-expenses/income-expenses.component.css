@@ -105,17 +105,8 @@ input {
   background: lightcoral;
 }
 
-.data-tipo{
-  display: flex;
-}
-
-.data-tipo div {
-  padding-right: 20px;
-}
-
-.text-data{
-  font-size: 15px;
-  width: 100%;
+.increase-size:hover{
+  transform: scale(1.1);
 }
 
 .conteudo-tarefa {
@@ -125,7 +116,15 @@ input {
   width: 100%;
 }
 
-.adicionar-botao {
+.second-card-image{
+  min-height: 260px;
+}
+
+.card-image-content{
+  object-fit: cover;
+}
+
+.adicionar-botao{
   display: flex;
   justify-content: flex-end;
   margin: 12px 0;
