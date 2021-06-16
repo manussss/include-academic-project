@@ -9,6 +9,7 @@ import { MetodosGrafico } from './metodosGrafico'
   styleUrls: ['./income-expenses.component.css'],
 })
 export class IncomeExpensesComponent implements OnInit {
+
   extratos: Extrato[] = [];
   private extratoSubscription: Subscription;
   private metodosGrafico: MetodosGrafico = new MetodosGrafico();

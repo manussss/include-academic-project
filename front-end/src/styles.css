@@ -4,7 +4,3 @@
 
 
 html, body { padding: 0; margin: 0;}
-
-main ~ div.p-card-body{
-  background-color: red !important;
-}

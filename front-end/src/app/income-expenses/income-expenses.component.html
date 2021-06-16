@@ -153,11 +153,10 @@
           >
               <p-card
                 [ngClass]="{ receita: dado.tipo, despesa: !dado.tipo }"
-                class="card bg-sketch"
+                class="card"
               >
                 <div class="conteudo-tarefa">
                   <a class="close" (click)="excluir(dado)"></a>
-                  <!-- classe close - botão de apagar -->
                   <p>{{ dado.nome }}</p>
                   <p>{{ dado.descricao }}</p>
                   <p>{{ dado.valor }}</p>
