@@ -48,11 +48,6 @@ export class IncomeExpensesComponent implements OnInit {
     this.extratoService.getExtratos();
   }
 
-  // atualizar(extrato: Extrato) {
-  //   this.extratoService.atualizarExtrato(extrato);
-  //   this.extratoService.getExtratos();
-  // }
-
   excluir(extrato: Extrato) {
     if(confirm('Deseja excluir o extrato "' + extrato.nome + '"?')) {
       this.extratoService.removerExtrato(extrato.id);
@@ -69,12 +64,12 @@ export class IncomeExpensesComponent implements OnInit {
       datasets: [
         {
           label: 'Receitas',
-          backgroundColor: '#42A5F5',
+          backgroundColor: '#8feb34',
           data: receitas,
         },
         {
           label: 'Despesas',
-          backgroundColor: '#FFA726',
+          backgroundColor: '#e63f3c',
           data: despesas,
         },
       ],

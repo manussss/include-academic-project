@@ -55,8 +55,9 @@ input {
 
 .card-border {
   border-radius: 5px;
-  width: 50%;
+  width: 45%;
   padding: 10px;
+  margin: 5px;
 }
 
 .red-button {
@@ -75,6 +76,10 @@ input {
 
 .home-title {
   margin: 20px 0;
+}
+
+.bg-sketch{
+  background-color: black !important;
 }
 
 .home-image {
