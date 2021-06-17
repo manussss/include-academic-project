@@ -1,13 +1,13 @@
 <main>
   <p-tabView (onChange)="atualizarGrafico()">
     <p-tabPanel header="Início">
-
       <main role="main">
         <section class="jumbotron text-center">
           <div class="container">
             <h1>UniManager</h1>
             <p class="lead text-muted">
-              Para quem procura na simplicidade de um design <em>elegante</em>, um gerenciador de receitas e despesas.
+              Para quem procura na simplicidade de um design <em>elegante</em>,
+              um gerenciador de receitas e despesas.
             </p>
           </div>
         </section>
@@ -28,8 +28,7 @@
                     </p>
                     <div
                       class="d-flex justify-content-between align-items-center"
-                    >
-                    </div>
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -42,12 +41,12 @@
                   />
                   <div class="card-body">
                     <p class="card-text">
-                      Sem dor de cabeça ao gerenciar as receitas e despesas do mês.
+                      Sem dor de cabeça ao gerenciar as receitas e despesas do
+                      mês.
                     </p>
                     <div
                       class="d-flex justify-content-between align-items-center"
-                    >
-                    </div>
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -64,8 +63,7 @@
                     </p>
                     <div
                       class="d-flex justify-content-between align-items-center"
-                    >
-                    </div>
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -73,7 +71,6 @@
           </div>
         </div>
       </main>
-
     </p-tabPanel>
     <p-tabPanel header="Receitas e Despesas">
       <p-card header="Extrato" subheader="Seu extrato">
@@ -87,9 +84,7 @@
               name="nome"
               ngModel
             />
-            <label for="float-inpu-desc"
-              >Qual o nome do que quer adicionar?</label
-            >
+            <label for="float-inpu-desc">Qual título quer adicionar?</label>
           </span>
 
           <span class="p-float-label spacing-span">
@@ -101,9 +96,7 @@
               name="dado"
               ngModel
             />
-            <label for="float-inpu-desc"
-              >Qual a descrição do que quer adicionar?</label
-            >
+            <label for="float-inpu-desc">Qual descrição quer adicionar?</label>
           </span>
 
           <span class="p-float-label ui-inputgroup-addon spacing-span">
@@ -131,7 +124,7 @@
                 ngModel
               />
             </div>
-            <div  class="tipo">
+            <div class="tipo">
               <label class="text-data">Escolha o tipo: </label>
               <p-selectButton
                 [options]="opcoes"
@@ -163,10 +156,10 @@
               class="card"
             >
               <div class="conteudo-tarefa">
-                <a class="close" (click)='excluir(dado)'></a>
+                <a class="close" (click)="excluir(dado)"></a>
                 <p>{{ dado.nome }}</p>
                 <p>{{ dado.descricao }}</p>
-                <p>R${{ dado.valor | number:'1.2-2'}}</p>
+                <p>R${{ dado.valor | number: "1.2-2" }}</p>
               </div>
             </p-card>
           </div>
