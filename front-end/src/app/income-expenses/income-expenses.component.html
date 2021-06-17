@@ -166,7 +166,7 @@
                 <a class="close" (click)='excluir(dado)'></a>
                 <p>{{ dado.nome }}</p>
                 <p>{{ dado.descricao }}</p>
-                <p>{{ dado.valor }}</p>
+                <p>R${{ dado.valor | number:'1.2-2'}}</p>
               </div>
             </p-card>
           </div>
